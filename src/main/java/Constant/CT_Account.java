@@ -8,7 +8,8 @@ public class CT_Account {
 //	public static By ELEMENT_LOGOUT_ICON = By.xpath("//*[text()='Logout']/../../..");
 //	public static By ELEMENT_LOGOUT_LINK = By.xpath("//*[text()='Logout']/..");
 	
-public static String webURL = "https://stg.u2w.io/vi/login";
-
+public static String webURL_login = "https://stg.u2w.io/vi/login";
+public static String Home = "https://stg.u2w.io";
+ 
 public static String OpenFlights = "https://techydevs.com/demos/themes/html/trizen-demo/trizen/index.html";	
 }
