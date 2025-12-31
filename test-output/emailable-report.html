@@ -9,20 +9,15 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">40,804</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">24,485</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">TestSuite.RTC_login</td><td><a href="#m0">TC_Login_email_USS_account_invalid_passsword</a></td><td rowspan="1">1767092368823</td><td rowspan="1">22135</td></tr><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="4">TestSuite.RTC_login</td><td><a href="#m1">TC_Login_email_SS</a></td><td rowspan="1">1767092356226</td><td rowspan="1">4576</td></tr><tr class="passedeven"><td><a href="#m2">TC_Login_email_USS_account_invalid_email</a></td><td rowspan="1">1767092365358</td><td rowspan="1">1813</td></tr><tr class="passedeven"><td><a href="#m3">TC_Login_email_USS_blank_Email</a></td><td rowspan="1">1767092362438</td><td rowspan="1">692</td></tr><tr class="passedeven"><td><a href="#m4">TC_Login_email_USS_blank_password</a></td><td rowspan="1">1767092392653</td><td rowspan="1">1404</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">TestSuite.RTC_login</td><td><a href="#m0">TC_Login_password_Space_after</a></td><td rowspan="1">1767167553231</td><td rowspan="1">21304</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">TestSuite.RTC_login#TC_Login_email_USS_account_invalid_passsword</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on windows (92fe3cc4ac4453c744ab7133bba28c0d)] -&gt; xpath: //button[contains(.,&apos;Đăng nhập&apos;)]] (tried for 20 second(s) with 500 milliseconds interval)
-Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.27&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\lilyh\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57002}, goog:processID: 24460, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57002/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 92fe3cc4ac4453c744ab7133bba28c0d
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
-	at pageLocator.Login_locator.LoginFunction_Email_account_invalid(Login_locator.java:165)
-	at TestSuite.RTC_login.TC_Login_email_USS_account_invalid_passsword(RTC_login.java:67)
+<h2>Default test</h2><h3 id="m0">TestSuite.RTC_login#TC_Login_password_Space_after</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: LỖI: Thông báo thành công không hiển thị!URL hiện tại: https://stg.u2w.io/vi/login?step=verify expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at TestSuite.RTC_login.TC_Login_password_Space_after(RTC_login.java:162)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -52,9 +47,5 @@ Session ID: 92fe3cc4ac4453c744ab7133bba28c0d
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">TestSuite.RTC_login#TC_Login_email_SS</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">TestSuite.RTC_login#TC_Login_email_USS_account_invalid_email</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">TestSuite.RTC_login#TC_Login_email_USS_blank_Email</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">TestSuite.RTC_login#TC_Login_email_USS_blank_password</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

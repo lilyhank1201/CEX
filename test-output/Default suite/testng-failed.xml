@@ -5,8 +5,8 @@
     <classes>
       <class name="TestSuite.RTC_login">
         <methods>
+          <include name="TC_Login_password_Space_after"/>
           <include name="tearDown"/>
-          <include name="TC_Login_email_USS_account_invalid_passsword"/>
           <include name="openChromeDriver"/>
         </methods>
       </class> <!-- TestSuite.RTC_login -->

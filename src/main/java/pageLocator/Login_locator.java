@@ -2,12 +2,16 @@ package pageLocator;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
 import java.util.List;
 import Constant.CT_Account;
 
@@ -25,6 +29,10 @@ public class Login_locator {
 	private WebElement phone_txt;
 	@FindBy(xpath = "//input[@autocomplete='Password' and @type='password']")
 	private WebElement Password_txt;
+
+	@FindBy(xpath = "//input[@autocomplete='Password' and @type='password']")
+	private By  Password;
+	
 	@FindBy(xpath = "(//button[contains(.,'Tiếp tục')])[1]") // button[@type='button' and contains(., 'Tiếp tục')]
 	private WebElement continue_btn;
 	@FindBy(xpath = "//button[contains(.,'Đăng nhập')]")
@@ -47,9 +55,11 @@ public class Login_locator {
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 	}
-
-
-
+	 
+	
+	
+	
+ //case test
 	public void LoginFunction_Email_SS_test(String email, String password) throws InterruptedException { 
 		wait.until(ExpectedConditions.elementToBeClickable(email_tab));
 		email_tab.click();
@@ -63,6 +73,93 @@ public class Login_locator {
 		wait.until(ExpectedConditions.elementToBeClickable(login_btn));
 		login_btn.click(); 
 	}
+
+	public void LoginFunction_Email_blank(String email, String password) throws InterruptedException {
+
+		wait.until(ExpectedConditions.elementToBeClickable(email_tab));
+		email_tab.click();
+		// email_txt.clear();
+		if (email != null && !email.isEmpty()) {
+			email_txt.sendKeys(email);
+		}
+		// isEnabled() sẽ trả về true nếu nút có thể tương tác, false nếu bị disable
+		if (continue_btn.isEnabled()) {
+			System.out.println("Nút Continue đang mở - Tiến hành click");
+			continue_btn.click();
+
+			// Chỉ khi click được Continue mới làm tiếp các bước sau
+			wait.until(ExpectedConditions.visibilityOf(Password_txt));
+			Password_txt.clear();
+			Password_txt.sendKeys(password); 
+			wait.until(ExpectedConditions.elementToBeClickable(login_btn)); 
+			login_btn.click();
+		} else {
+			// Trường hợp email trống và nút bị xám (disable)
+			System.out.println("Nút Continue đang bị DISABLE - Đúng như mong đợi khi email trống");
+			// Ở đây bạn có thể thêm verify để đánh Case Test là PASS
+		}
+	}
+
+ 	public void LoginFunction_Email_account_invalid(String email, String password) throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(email_tab));
+		email_tab.click();
+		email_txt.clear();
+		wait.until(ExpectedConditions.elementToBeClickable(email_tab));
+		email_tab.click();
+		email_txt.clear();
+		email_txt.sendKeys(email);
+		wait.until(ExpectedConditions.elementToBeClickable(continue_btn));
+		continue_btn.click(); 
+		wait.until(ExpectedConditions.elementToBeClickable(Password_txt));
+		Password_txt.clear();
+		Password_txt.sendKeys(password);
+		wait.until(ExpectedConditions.elementToBeClickable(login_btn));
+		login_btn.click();
+	}
+	// lỗi tài khoản
+	public boolean account_invalid() {
+		try {
+			wait.until(ExpectedConditions.visibilityOf(Unsuccess_msg));
+
+			System.out.println("Thông báo xuất hiện: " + Unsuccess_msg.getText());
+			return true;
+		} catch (Exception e) {
+			System.err.println("LỖI: Không tìm thấy thông báo lỗi tài khoản không hợp lệ!"+
+	                   "URL hiện tại: " + driver.getCurrentUrl());
+			return false; // Ném lỗi để bài test bị đánh dấu là Fail
+
+		}
+	}
+	public void LoginFunction_password_blank(String email, String password) throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(email_tab));
+		email_tab.click();
+		email_txt.clear();
+		email_txt.sendKeys(email);
+		wait.until(ExpectedConditions.elementToBeClickable(continue_btn));
+		continue_btn.click();
+		wait.until(ExpectedConditions.elementToBeClickable(Password_txt));
+		// email_txt.clear();
+		if (password != null && !password.isEmpty()) {
+			Password_txt.sendKeys(password);
+		}
+		if (login_btn.isEnabled()) {
+			System.out.println("Nút Continue đang mở - Tiến hành click");
+			login_btn.click();
+
+			wait.until(ExpectedConditions.elementToBeClickable(login_btn));
+			login_btn.click();
+		} else {
+			// Trường hợp email trống và nút bị xám (disable)
+			System.out.println("Nút sign in đang bị DISABLE - Đúng như mong đợi khi Passwword trống");
+			// Ở đây bạn có thể thêm verify để đánh Case Test là PASS
+		}
+	}
+	
+	
+	
+	
+	
+//msg test	
 	public boolean checkSuccessMsgIsDisplayed() {
 		try {
 			// Đợi message xuất hiện trong tối đa 10 giây (dựa trên cấu hình wait của bạn)
@@ -76,8 +173,30 @@ public class Login_locator {
 
 		}
 	} 
-	 
+	public boolean verifyloginSS() {
+		try {
+			// Đợi URL thay đổi, không còn chữ 'login' thì mới là đã vào trang chủ
+			wait.until(ExpectedConditions.not(ExpectedConditions.urlContains("login")));
+			String currentUrl = driver.getCurrentUrl();
+			// Kiểm tra URL trang chủ chính xác  
+			return currentUrl.equals("https://stg.u2w.io/vi") || currentUrl.equals("https://stg.u2w.io/en");
+		} catch (Exception e) {
+			System.out.println("Lỗi: Đăng nhập thất bại hoặc kẹt ở bước OTP.");
+			return false;
+ 
+		}
+	} 
 	
+	public boolean isErrorDisplayed() {
+        try {
+            return wait.until(ExpectedConditions.visibilityOf(Unsuccess_msg)).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+	
+	 
+	}
 //	public void LoginFunction_Email_SS(String email, String password, String... otp) throws InterruptedException {
 ////	public void LoginFunction_Email_SS(String email, String password, String input01, String input02, String input03,
 ////			String input04, String input05, String input06) throws InterruptedException {
@@ -103,106 +222,5 @@ public class Login_locator {
 //	        Thread.sleep(500);
 //	        }
 
-	 
-//	}
-		
-	public boolean verifyloginSS() {
-		try {
-			// Đợi URL thay đổi, không còn chữ 'login' thì mới là đã vào trang chủ
-			wait.until(ExpectedConditions.not(ExpectedConditions.urlContains("login")));
-			String currentUrl = driver.getCurrentUrl();
-			// Kiểm tra URL trang chủ chính xác 
-			return currentUrl.equals("https://stg.u2w.io/vi") || currentUrl.equals("https://stg.u2w.io/en");
-		} catch (Exception e) {
-			System.out.println("Lỗi: Đăng nhập thất bại hoặc kẹt ở bước OTP.");
-			return false;
- 
-		}
-	}
-
-	// display msg Gửi mã xác minh thành công
- 
-
-	public void LoginFunction_Email_blank(String email, String password) throws InterruptedException {
-
-		wait.until(ExpectedConditions.elementToBeClickable(email_tab));
-		email_tab.click();
-		// email_txt.clear();
-		if (email != null && !email.isEmpty()) {
-			email_txt.sendKeys(email);
-		}
-		// isEnabled() sẽ trả về true nếu nút có thể tương tác, false nếu bị disable
-		if (continue_btn.isEnabled()) {
-			System.out.println("Nút Continue đang mở - Tiến hành click");
-			continue_btn.click();
-
-			// Chỉ khi click được Continue mới làm tiếp các bước sau
-			wait.until(ExpectedConditions.visibilityOf(Password_txt));
-			Password_txt.clear();
-			Password_txt.sendKeys(password);
-			wait.until(ExpectedConditions.elementToBeClickable(login_btn));
-			login_btn.click();
-		} else {
-			// Trường hợp email trống và nút bị xám (disable)
-			System.out.println("Nút Continue đang bị DISABLE - Đúng như mong đợi khi email trống");
-			// Ở đây bạn có thể thêm verify để đánh Case Test là PASS
-		}
-	}
-
-	public void LoginFunction_Email_account_invalid(String email, String password) throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(email_tab));
-		email_tab.click();
-		email_txt.clear();
-		wait.until(ExpectedConditions.elementToBeClickable(email_tab));
-		email_tab.click();
-		email_txt.clear();
-		email_txt.sendKeys(email);
-		wait.until(ExpectedConditions.elementToBeClickable(continue_btn));
-		continue_btn.click();
-		wait.until(ExpectedConditions.elementToBeClickable(Password_txt));
-		Password_txt.clear();
-		Password_txt.sendKeys(password);
-		wait.until(ExpectedConditions.elementToBeClickable(login_btn));
-		login_btn.click();
-	}
-
-	// lỗi tài khoản
-	public boolean account_invalid() {
-		try {
-			wait.until(ExpectedConditions.visibilityOf(Unsuccess_msg));
-
-			System.out.println("Thông báo xuất hiện: " + Unsuccess_msg.getText());
-			return true;
-		} catch (Exception e) {
-			System.err.println("LỖI: Không tìm thấy thông báo lỗi tài khoản không hợp lệ!");
-			return false; // Ném lỗi để bài test bị đánh dấu là Fail
-
-		}
-	}
-
-	public void LoginFunction_password_blank(String email, String password) throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(email_tab));
-		email_tab.click();
-		email_txt.clear();
-		email_txt.sendKeys(email);
-		wait.until(ExpectedConditions.elementToBeClickable(continue_btn));
-		continue_btn.click();
-		wait.until(ExpectedConditions.elementToBeClickable(Password_txt));
-		// email_txt.clear();
-		if (password != null && !password.isEmpty()) {
-			Password_txt.sendKeys(password);
-		}
-		if (login_btn.isEnabled()) {
-			System.out.println("Nút Continue đang mở - Tiến hành click");
-			login_btn.click();
-
-			wait.until(ExpectedConditions.elementToBeClickable(login_btn));
-			login_btn.click();
-		} else {
-			// Trường hợp email trống và nút bị xám (disable)
-			System.out.println("Nút sign in đang bị DISABLE - Đúng như mong đợi khi email trống");
-			// Ở đây bạn có thể thêm verify để đánh Case Test là PASS
-		}
-	}
-
-}
+	  
+//	} 

@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>4/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Dec 30 17:59:13 ICT 2025</td>
+<td>Started on:</td><td>Wed Dec 31 14:52:30 ICT 2025</td>
 </tr>
-<tr><td>Total time:</td><td>40 seconds (40804 ms)</td>
+<tr><td>Total time:</td><td>24 seconds (24485 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,17 +75,12 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='TestSuite.RTC_login.TC_Login_email_USS_account_invalid_passsword()'><b>TC_Login_email_USS_account_invalid_passsword</b><br>Test class: TestSuite.RTC_login</td>
-<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on windows (92fe3cc4ac4453c744ab7133bba28c0d)] -&gt; xpath: //button[contains(.,&apos;Đăng nhập&apos;)]] (tried for 20 second(s) with 500 milliseconds interval)
-Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.27&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\lilyh\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57002}, goog:processID: 24460, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57002/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 92fe3cc4ac4453c744ab7133bba28c0d
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
-	at pageLocator.Login_locator.LoginFunction_Email_account_invalid(Login_locator.java:165)
-	at TestSuite.RTC_login.TC_Login_email_USS_account_invalid_passsword(RTC_login.java:67)
+<td title='TestSuite.RTC_login.TC_Login_password_Space_after()'><b>TC_Login_password_Space_after</b><br>Test class: TestSuite.RTC_login</td>
+<td><div><pre>java.lang.AssertionError: LỖI: Thông báo thành công không hiển thị!URL hiện tại: https://stg.u2w.io/vi/login?step=verify expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at TestSuite.RTC_login.TC_Login_password_Space_after(RTC_login.java:162)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -114,17 +109,12 @@ Session ID: 92fe3cc4ac4453c744ab7133bba28c0d
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace304193386", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace304193386'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on windows (92fe3cc4ac4453c744ab7133bba28c0d)] -&gt; xpath: //button[contains(.,&apos;Đăng nhập&apos;)]] (tried for 20 second(s) with 500 milliseconds interval)
-Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.27&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\lilyh\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57002}, goog:processID: 24460, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57002/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 92fe3cc4ac4453c744ab7133bba28c0d
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
-	at pageLocator.Login_locator.LoginFunction_Email_account_invalid(Login_locator.java:165)
-	at TestSuite.RTC_login.TC_Login_email_USS_account_invalid_passsword(RTC_login.java:67)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1983283775", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1983283775'><pre>java.lang.AssertionError: LỖI: Thông báo thành công không hiển thị!URL hiện tại: https://stg.u2w.io/vi/login?step=verify expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at TestSuite.RTC_login.TC_Login_password_Space_after(RTC_login.java:162)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -154,36 +144,8 @@ Session ID: 92fe3cc4ac4453c744ab7133bba28c0d
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
-<td>22</td>
-<td>TestSuite.RTC_login@434a63ab</td></tr>
-</table><p>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='TestSuite.RTC_login.TC_Login_email_USS_blank_password()'><b>TC_Login_email_USS_blank_password</b><br>Test class: TestSuite.RTC_login</td>
-<td></td>
-<td>1</td>
-<td>TestSuite.RTC_login@434a63ab</td></tr>
-<tr>
-<td title='TestSuite.RTC_login.TC_Login_email_USS_blank_Email()'><b>TC_Login_email_USS_blank_Email</b><br>Test class: TestSuite.RTC_login</td>
-<td></td>
-<td>0</td>
-<td>TestSuite.RTC_login@434a63ab</td></tr>
-<tr>
-<td title='TestSuite.RTC_login.TC_Login_email_SS()'><b>TC_Login_email_SS</b><br>Test class: TestSuite.RTC_login</td>
-<td></td>
-<td>4</td>
-<td>TestSuite.RTC_login@434a63ab</td></tr>
-<tr>
-<td title='TestSuite.RTC_login.TC_Login_email_USS_account_invalid_email()'><b>TC_Login_email_USS_account_invalid_email</b><br>Test class: TestSuite.RTC_login</td>
-<td></td>
-<td>1</td>
-<td>TestSuite.RTC_login@434a63ab</td></tr>
+<td>21</td>
+<td>TestSuite.RTC_login@32502377</td></tr>
 </table><p>
 </body>
 </html>
