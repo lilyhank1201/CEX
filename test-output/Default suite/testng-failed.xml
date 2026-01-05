@@ -3,13 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="TestSuite.RTC_login">
+      <class name="TestSuite.Login_single">
         <methods>
-          <include name="TC_Login_password_Space_after"/>
-          <include name="tearDown"/>
+          <include name="TC_Login_email_SS"/>
           <include name="openChromeDriver"/>
         </methods>
-      </class> <!-- TestSuite.RTC_login -->
+      </class> <!-- TestSuite.Login_single -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

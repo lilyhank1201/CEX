@@ -44,8 +44,7 @@ public class Login_locator {
 	private WebElement success_msg;
 	@FindBy(xpath = "//div[@role='alert' and contains(@class, 'Toastify__toast--error')]")
 	private WebElement Unsuccess_msg; 
-
-	
+  
 	// OTP
 	@FindBy(xpath = "//input[contains(@aria-label,'OTP Input')]")
 	private List<WebElement> otpInputs;
@@ -57,7 +56,7 @@ public class Login_locator {
 	}
 	 
 	
-	
+ 
 	
  //case test
 	public void LoginFunction_Email_SS_test(String email, String password) throws InterruptedException { 
