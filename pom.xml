@@ -56,6 +56,11 @@
             <artifactId>selenium-api</artifactId>
             <version>4.10.0</version>
         </dependency>
+        <dependency>
+        	<groupId>automation.test</groupId>
+        	<artifactId>BOB</artifactId>
+        	<version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>

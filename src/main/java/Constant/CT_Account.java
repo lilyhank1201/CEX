@@ -11,6 +11,6 @@ public class CT_Account {
 public static String webURL_login = "https://stg.u2w.io/vi/login";
 public static String Home = "https://stg.u2w.io";
 public static String Assets_overview = "https://stg.u2w.io/vi/balance/overview";
- 
+public static String Assets_transfer = "https://stg.u2w.io/vi/balance/transfer";
 public static String OpenFlights = "https://techydevs.com/demos/themes/html/trizen-demo/trizen/index.html";	
 }

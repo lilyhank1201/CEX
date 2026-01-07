@@ -1,7 +1,0 @@
-pageLocator\Home.class
-Common\CommonBase.class
-Constant\CT_Account.class
-Common\TestLogger.class
-pageLocator\Login_locator.class
-Constant\CT_Common.class
-TestSuite\RTC_login.class
