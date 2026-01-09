@@ -31,7 +31,27 @@ public class Login_single extends CommonBase {
 	}
 
 	@Test(priority = 1)
-	public void TS_FFundingToTrading () throws InterruptedException {
+	public void TS_FFundingToTrading() throws InterruptedException {
+		// login
+		Login_locator loginPage = new Login_locator(driver);
+		loginPage.LoginFunction_Email_SS_test("stg2@mailinator.com", "Te@12345");
+		AssertJUnit.assertTrue(loginPage.checkSuccessMsgIsDisplayed());
+		otpPage.waitOtpVisible();
+		otpPage.enterOtp("123456");
+		boolean isLoginSuccess = loginPage.verifyloginSS();
+		AssertJUnit.assertTrue("LỖI: Không vào được trang chủ!" + "URL hiện tại: " + driver.getCurrentUrl(),
+				isLoginSuccess);
+		// goto Assets > overview
+		driver.get(CT_Account.Assets_transfer);
+		// Go to transfer
+		Asset_overview_location openAssets = new Asset_overview_location(driver);
+		openAssets.getAvailableBalance();
+		openAssets.handleTransferAmount("41");
+		openAssets.ClickTransferAsset();
+	}
+
+	@Test(priority = 2)
+	public void TS_FFundingToTradingIFELSE() throws InterruptedException {
 		// login
 		Login_locator loginPage = new Login_locator(driver);
 		loginPage.LoginFunction_Email_SS_test("stg2@mailinator.com", "Te@12345");

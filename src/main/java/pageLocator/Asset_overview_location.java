@@ -7,7 +7,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.devtools.v112.page.Page;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
@@ -81,8 +80,6 @@ public class Asset_overview_location {
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
 		double balanceBefore = getAvailableBalance();
-
-		System.out.println("số dư hiện tại " + balanceBefore);
 		if (balanceBefore > 0) {
 			try {
 				WebElement input = wait.until(ExpectedConditions.visibilityOf(amount_transfer_text));
@@ -91,7 +88,7 @@ public class Asset_overview_location {
 				((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", input);
 
 				// Click để focus
-				input.click(); 
+				input.click();
 				input.sendKeys(Keys.CONTROL + "a"); // Select all
 				input.sendKeys(Keys.DELETE); // Xóa hết
 
@@ -132,6 +129,7 @@ public class Asset_overview_location {
 			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});",
 					transferBtn01);
 			Thread.sleep(2000);
+			
 			boolean transferbtnEnable = transferBtn01.isEnabled();
 			if (transferbtnEnable) {
 				System.out.println("Transfer button Enabled");
@@ -143,16 +141,18 @@ public class Asset_overview_location {
 
 			System.out.println("Click Transfer Success");
 			driver.navigate().refresh();
+			
 			double balanceAfterInput = getAvailableBalance();
 			if (balanceAfterInput < balance) {
 				System.out.println("Transfer SUCCESS is REAL với balance new = " + balanceAfterInput);
 
 			} else {
 				System.out.println(
-						"Transfer FAILED hoặc chưa cập nhật: trước = " + balance + ", sau = " + balanceAfterInput); 
+						"Transfer FAILED hoặc chưa cập nhật: trước = " + balance + ", sau = " + balanceAfterInput);
 			}
-		} else { 
-			System.out.println(" Not enter Amount transfer");
+		} else {
+			System.out.println(" Not enter Amount transfer LAN 1");
+			
 		}
 
 	}
